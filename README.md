@@ -2,7 +2,7 @@ Working demo:
 
 ```
 
-https://furniture-store-reactjs.netlify.app/
+
 
 ```
 
