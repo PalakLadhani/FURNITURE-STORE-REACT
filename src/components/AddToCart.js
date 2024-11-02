@@ -70,47 +70,52 @@ const AddToCart = ({ product }) => {
 
 const AddToCartContainer = styled.section`
   margin-top: 2rem;
+
   .colors {
-    display: grid;
-    grid-template-columns: 4rem 1fr;
+    display: flex;
     align-items: center;
     margin-bottom: 1rem;
     span {
-      text-transform: capitalize;
-      font-weight: 700;
+      font-weight: bold;
+      margin-right: 0.5rem;
     }
-    div {
-      display: flex;
+    .color-btn {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      border: none;
+      cursor: pointer;
+      opacity: 0.8;
+      &.active {
+        opacity: 1;
+      }
+      svg {
+        color: white;
+        font-size: 0.75rem;
+      }
     }
-  }
-  .color-btn {
-    display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    background: #222;
-    margin-right: 0.5rem;
-    border: none;
-    cursor: pointer;
-    opacity: 0.8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    svg {
-      font-size: 0.75rem;
-      color: var(--clr-white);
-    }
-  }
-  .active {
-    opacity: 1;
-  }
-  .btn-container {
-    margin-top: 2rem;
   }
 
-  .btn {
-    margin-top: 1rem;
-    width: 140px;
+  .btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .btn {
+      width: 150px;
+      padding: 0.75rem;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.3s;
+      &:hover {
+        background: #555;
+      }
+    }
   }
 `;
 
