@@ -1,14 +1,17 @@
+// src/components/GridView.js
 import React from "react";
 import styled from "styled-components";
 import Product from "./Product";
 
-const GridView = ({ products }) => {
+import { doorsData } from "../Data/data";
+
+const GridView = () => {
   return (
     <GridViewContainer>
       <div className="products-container">
-        {products.map((product) => {
-          return <Product key={product.id} {...product} />;
-        })}
+        {doorsData.map((product) => (
+          <Product key={product.id} {...product} />
+        ))}
       </div>
     </GridViewContainer>
   );

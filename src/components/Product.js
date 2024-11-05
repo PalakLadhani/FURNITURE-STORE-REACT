@@ -1,21 +1,22 @@
+// src/components/Product.js
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import formatPrice from "../utils/formatPrice";
 
-const Product = ({ id, image, name, price }) => {
+const Product = ({ id, image, name }) => {
   return (
     <ProductContainer>
       <div className="container">
-        <img src={image[0].url} alt={name} />
+        <img src={image} alt={name} />
         <Link to={`/product/${id}`} className="link">
           <FaSearch />
         </Link>
       </div>
       <footer>
         <h5>{name}</h5>
-        <p>{formatPrice(price)}</p>
+        {/* <p>{formatPrice(price)}</p> */}
       </footer>
     </ProductContainer>
   );
@@ -29,8 +30,8 @@ const ProductContainer = styled.article`
   }
   img {
     width: 100%;
-    display: block;
-    object-fit: cover;
+    height: 200px; /* Set a fixed height for uniformity */
+    object-fit: contain; /* Ensures the entire door image is visible */
     border-radius: var(--radius);
     transition: var(--transition);
   }
@@ -55,7 +56,7 @@ const ProductContainer = styled.article`
     }
   }
   .container:hover img {
-    opacity: 0.5;
+    opacity: 0.9; /* Slight opacity change for hover effect */
   }
   .container:hover .link {
     opacity: 1;

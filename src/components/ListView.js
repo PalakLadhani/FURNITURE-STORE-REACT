@@ -1,21 +1,24 @@
+// src/components/ListView.js
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import formatPrice from "../utils/formatPrice";
 
-const ListView = ({ products }) => {
+import { doorsData } from "../Data/data";
+
+const ListView = () => {
   return (
     <ListViewContainer>
-      {products.map((product) => {
-        const { id, image, name, price, description } = product;
+      {doorsData.map((product) => {
+        const { id, image, name } = product;
 
         return (
           <article key={id}>
-            <img src={image[0].url} alt={name} />
+            <img src={image} alt={name} />
             <div>
               <h4>{name}</h4>
-              <h5 className="price">{formatPrice(price)}</h5>
-              <p>{description.substring(0, 150)}...</p>
+              {/* <h5 className="price">{formatPrice(price)}</h5> */}
+              <p>Premium quality doors with elegant designs.</p>
               <Link to={`/product/${id}`} className="btn">
                 More
               </Link>

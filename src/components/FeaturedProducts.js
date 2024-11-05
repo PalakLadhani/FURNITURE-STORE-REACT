@@ -1,21 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { useProductsContext } from "../context/products_context";
-import Loading from "./Loading";
-import Error from "./Error";
+import { doorsData } from "../Data/data"; // Import doors data directly
 import Product from "./Product";
 
 const FeaturedProducts = () => {
-  const { productsLoading, productsError, featured } = useProductsContext();
-
-  if (productsLoading) {
-    return <Loading />;
-  }
-
-  if (productsError) {
-    return <Error />;
-  }
-
   return (
     <FeaturedProductsContainer className="section">
       <div className="title">
@@ -23,7 +11,8 @@ const FeaturedProducts = () => {
         <div className="underline"></div>
       </div>
       <div className="section-center featured">
-        {featured.slice(0, 3).map((product) => {
+        {/* Use doorsData to display only the first three door designs */}
+        {doorsData.slice(0, 3).map((product) => {
           return <Product key={product.id} {...product} />;
         })}
       </div>
@@ -39,6 +28,7 @@ const FeaturedProductsContainer = styled.section`
     gap: 2.5rem;
     img {
       height: 225px;
+      object-fit: contain; /* Ensures the entire door image is visible */
     }
   }
   .btn {
