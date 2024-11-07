@@ -43,21 +43,7 @@ const ListViewContainer = styled.section`
     border-radius: var(--radius);
     margin-bottom: 1rem;
   }
-  h4 {
-    margin-bottom: 0.5rem;
-  }
-  .price {
-    color: var(--clr-primary-5);
-    margin-bottom: 0.75rem;
-  }
-  p {
-    max-width: 45em;
-    margin-bottom: 1rem;
-  }
-  .btn {
-    font-size: 0.5rem;
-    padding: 0.25rem 0.5rem;
-  }
+
   @media (min-width: 992px) {
     article {
       display: grid;
@@ -66,6 +52,12 @@ const ListViewContainer = styled.section`
       align-items: center;
     }
   }
-`;
 
+  @media (max-width: 768px) {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+`;
 export default ListView;

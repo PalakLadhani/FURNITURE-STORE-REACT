@@ -3,7 +3,6 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
-import formatPrice from "../utils/formatPrice";
 
 const Product = ({ id, image, name }) => {
   return (
@@ -16,7 +15,6 @@ const Product = ({ id, image, name }) => {
       </div>
       <footer>
         <h5>{name}</h5>
-        {/* <p>{formatPrice(price)}</p> */}
       </footer>
     </ProductContainer>
   );
@@ -28,13 +26,15 @@ const ProductContainer = styled.article`
     background: var(--clr-black);
     border-radius: var(--radius);
   }
+
   img {
     width: 100%;
-    height: 200px; /* Set a fixed height for uniformity */
-    object-fit: contain; /* Ensures the entire door image is visible */
+    height: 200px;
+    object-fit: contain;
     border-radius: var(--radius);
     transition: var(--transition);
   }
+
   .link {
     position: absolute;
     top: 50%;
@@ -50,33 +50,32 @@ const ProductContainer = styled.article`
     transition: var(--transition);
     opacity: 0;
     cursor: pointer;
-    svg {
-      font-size: 1.25rem;
-      color: var(--clr-white);
-    }
   }
+
   .container:hover img {
-    opacity: 0.9; /* Slight opacity change for hover effect */
+    opacity: 0.9;
   }
+
   .container:hover .link {
     opacity: 1;
   }
+
   footer {
     margin-top: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  footer h5,
-  footer p {
-    margin-bottom: 0;
-    font-weight: 400;
-  }
 
-  footer p {
-    color: var(--clr-primary-5);
-    letter-spacing: var(--spacing);
+  @media (max-width: 576px) {
+    footer {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    img {
+      height: auto;
+    }
   }
 `;
-
 export default Product;

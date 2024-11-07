@@ -6,11 +6,11 @@ import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Products from "./pages/Products";
-import SingleProduct from "./pages/SingleProduct";
 import Cart from "./pages/Cart";
 import Error from "./pages/Error";
 import Checkout from "./pages/Checkout";
 import PrivateRoute from "./pages/PrivateRoute";
+import ProductDetails from "./components/ProductDetails"; // Import ProductDetails component
 
 function App() {
   return (
@@ -27,7 +27,10 @@ function App() {
         <Route path="/products">
           <Products />
         </Route>
-        <Route path="/product/:id" children={<SingleProduct />} />
+        {/* Update the product details route to use ProductDetails instead of SingleProduct */}
+        <Route path="/product/:id">
+          <ProductDetails /> {/* Use ProductDetails component here */}
+        </Route>
         <Route path="/cart">
           <Cart />
         </Route>

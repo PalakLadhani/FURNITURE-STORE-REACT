@@ -19,10 +19,9 @@ const Navbar = () => {
           <Link to="/">
             <img src={Logo} alt="Open to Sky Woodcrafts" />
           </Link>
-          {/* Uncomment if you want the sidebar toggle */}
-          {/* <button type="button" className="nav-toggle" onClick={openSidebar}>
+          <button type="button" className="nav-toggle" onClick={openSidebar}>
             <FaBars />
-          </button> */}
+          </button>
         </div>
         <ul className="nav-links">
           {links.map((link) => {
@@ -51,8 +50,7 @@ const Navbar = () => {
 
 const NavContainer = styled.nav`
   background-color: #fdfdfd;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 
   .nav-center {
     width: 90vw;
@@ -66,37 +64,68 @@ const NavContainer = styled.nav`
   .nav-header {
     display: flex;
     align-items: center;
-    img {
-      width: 200px;
-    }
-  }
 
-  .nav-toggle {
-    background: transparent;
-    border: none;
-    color: #333;
-    font-size: 1.5rem;
-    cursor: pointer;
+    img {
+      width: 120px;
+    }
+
+    .nav-toggle {
+      background: transparent;
+      border: none;
+      color: #333;
+      font-size: 1.5rem;
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+
+    @media (min-width: 992px) {
+      .nav-toggle {
+        display: none;
+      }
+    }
   }
 
   .nav-links {
     display: none;
     @media (min-width: 992px) {
       display: flex;
-      justify-content: center;
     }
   }
 
   .nav-link {
     color: black;
-    font-weight: 600;
-    font-size: 1.1rem;
-    margin: 0 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
     padding: 0.5rem 1rem;
-    text-transform: uppercase; /* Add this line for uppercase links */
-    transition: color 0.3s ease;
+    text-transform: uppercase;
+    text-decoration: none;
+
     &:hover {
       color: #555;
+    }
+  }
+
+  /* Mobile-friendly adjustments */
+  @media (max-width: 768px) {
+    .nav-header img {
+      width: 100px; /* Smaller logo */
+    }
+
+    .nav-center {
+      padding: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding-top: 1rem;
+    }
+
+    .nav-link {
+      font-size: 0.9rem; /* Adjust font size */
+      padding: 0.3rem 0.8rem; /* Adjust padding */
     }
   }
 `;

@@ -29,82 +29,78 @@ const Hero = () => {
     </HeroContainer>
   );
 };
-
 const HeroContainer = styled.section`
   display: grid;
   align-items: center;
-  justify-items: center; /* Center alignment for grid items */
-  padding: 3rem;
+  justify-items: center;
+  padding: 2rem;
   background: linear-gradient(
       to right,
       rgba(240, 244, 248, 0.9),
       rgba(230, 235, 241, 0.9)
     ),
     url(${heroImage}) center/cover no-repeat;
-  height: 100vh;
-  color: #34495e; /* Set a softer dark color for text */
+  color: #34495e;
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
-    height: auto; /* Adjust height for larger screens */
+    height: 100vh;
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+    height: auto;
   }
 `;
-
 const Content = styled.article`
   text-align: center;
-  padding: 2rem;
+  padding: 1rem; /* Reduced padding */
 
   h1 {
-    font-size: 2.5rem; /* Reduced size */
+    font-size: 2rem; /* Smaller font for mobile */
     font-weight: 700;
-    margin-bottom: 1rem;
-    color: #2c3e50; /* Main heading color */
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+
     span {
-      color: #e74c3c; /* Highlight color */
+      color: #e74c3c;
+      display: block;
+      font-size: 1.5rem; /* Smaller span font */
     }
   }
 
   p {
-    font-size: 1.1rem; /* Slightly smaller for better readability */
-    line-height: 1.8; /* Improved line height for readability */
-    max-width: 600px; /* Wider max-width for better content fit */
-    margin: 0 auto 2rem;
-    color: #555; /* Softer gray for better readability */
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 100%; /* Fit content */
+    margin: 0 auto 1.5rem;
+    color: #555;
   }
 
   .hero-btn {
-    padding: 0.75rem 1.5rem;
-    background-color: #e74c3c; /* Button color */
-    color: #fff;
-    font-size: 1rem;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none; /* Remove underline for link */
-  }
-
-  .hero-btn:hover {
-    background-color: #c0392b; /* Darker shade on hover */
+    padding: 0.6rem 1.2rem; /* Adjusted for mobile */
+    font-size: 0.9rem;
+    margin-top: 1rem;
   }
 `;
 
 const ImgContainer = styled.article`
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
 
   .main-img {
     width: 100%;
-    max-width: 700px;
+    max-width: 500px; /* Scaled down for mobile */
     border-radius: 8px;
     object-fit: cover;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
 
   @media (min-width: 768px) {
-    margin-top: 0; /* Reset margin on larger screens */
+    margin-top: 0;
   }
 `;
 
