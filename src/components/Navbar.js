@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Logo from "../assets/Logo.png";
+import Logo from "../assets/Logo.jpeg";
 import { links } from "../utils/constants";
 import NavIcons from "./NavIcons";
 import { useProductsContext } from "../context/products_context";

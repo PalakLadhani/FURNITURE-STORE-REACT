@@ -1,57 +1,54 @@
+// src/components/Counter.js
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Counter = () => {
-  // Initialize state for doors, customers, and cities
   const [doorsMade, setDoorsMade] = useState(0);
   const [customersServed, setCustomersServed] = useState(0);
   const [operationCities, setOperationCities] = useState(0);
 
-  // Target values
-  const doorsTarget = 100000;
-  const customersTarget = 197774;
+  const doorsTarget = 8932;
+  const customersTarget = 1322;
   const citiesTarget = 1;
 
   useEffect(() => {
-    // Function to increment the counters
     const incrementCounters = () => {
-      // Increment the doors made
+      // Slow down door increment for smoother effect
       const doorInterval = setInterval(() => {
         setDoorsMade((prev) => {
-          if (prev < doorsTarget) return prev + 500; // Increase door count
-          clearInterval(doorInterval); // Stop once the target is reached
-          return prev;
+          if (prev < doorsTarget) return prev + 50; // Smaller increment
+          clearInterval(doorInterval);
+          return doorsTarget;
         });
-      }, 10);
+      }, 50); // Slower interval
 
-      // Increment the customers served
+      // Slow down customer increment
       const customerInterval = setInterval(() => {
         setCustomersServed((prev) => {
-          if (prev < customersTarget) return prev + 100; // Increase customer count
-          clearInterval(customerInterval); // Stop once the target is reached
-          return prev;
+          if (prev < customersTarget) return prev + 20; // Smaller increment
+          clearInterval(customerInterval);
+          return customersTarget;
         });
-      }, 10);
+      }, 50);
 
-      // Increment the number of operation cities
+      // City increment remains slower and at its own pace
       const cityInterval = setInterval(() => {
         setOperationCities((prev) => {
-          if (prev < citiesTarget) return prev + 1; // Increase city count
-          clearInterval(cityInterval); // Stop once the target is reached
-          return prev;
+          if (prev < citiesTarget) return prev + 1;
+          clearInterval(cityInterval);
+          return citiesTarget;
         });
       }, 1000); // Slower increment for cities (1 per second)
     };
 
-    incrementCounters(); // Start the counter when the component mounts
+    incrementCounters();
 
     return () => {
-      // Cleanup intervals on component unmount to avoid memory leaks
       setDoorsMade(0);
       setCustomersServed(0);
       setOperationCities(0);
     };
-  }, []); // Empty dependency array ensures this runs only once when the component mounts
+  }, []);
 
   return (
     <CounterContainer>

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PageHero from "../components/PageHero";
-import image from "../assets/about_us.svg";
+import image from "../assets/about_us.jpg";
 
 const About = () => {
   return (
@@ -38,7 +38,7 @@ const AboutContainer = styled.section`
     display: block;
     border-radius: var(--radius);
     height: 500px;
-    object-fit: cover;
+    object-fit: contain;
   }
   p {
     line-height: 2;

@@ -26,7 +26,8 @@ const CEOSection = () => {
 };
 
 const CEOContainer = styled.section`
-  padding: 5rem 0;
+  padding: 2rem 0;
+
   background: linear-gradient(
     to right,
     #e0f7fa,
@@ -69,7 +70,7 @@ const CEOContainer = styled.section`
   }
 
   .ceo-description h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: var(--clr-primary-4);
     margin-bottom: 1rem;

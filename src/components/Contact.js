@@ -43,18 +43,18 @@ const Contact = () => {
             <input
               type="text"
               className="form-input"
-              placeholder="Enter your name"
+              placeholder="name"
               name="name"
             />
             <input
               type="tel"
               className="form-input"
-              placeholder="Enter your mobile number"
+              placeholder="mobile no"
               name="mobile"
             />
             <textarea
               className="form-input"
-              placeholder="Enter your message"
+              placeholder="message"
               name="message"
             />
             <button type="submit" className="submit-btn">

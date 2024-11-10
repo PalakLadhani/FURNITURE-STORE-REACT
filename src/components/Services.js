@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { HiColorSwatch, HiBookOpen, HiBadgeCheck, HiEye } from "react-icons/hi";
-
+import { FaRegAddressCard } from "react-icons/fa";
+import { MdContactPhone, MdEmail } from "react-icons/md";
 const Services = () => {
   return (
     <ServicesContainer>
@@ -12,13 +13,24 @@ const Services = () => {
         <div className="services-center">
           <article className="service">
             <span className="icon">
-              <HiBadgeCheck />
+              <FaRegAddressCard />
             </span>
-            <h4>Mission</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
-              fuga quis perferendis.
-            </p>
+            <h4>Address</h4>
+            <p>404,Rich Empire,Lane No 5,Kutwal Colony,Lohegaon,Pune-15</p>
+          </article>
+          <article className="service">
+            <span className="icon">
+              <MdContactPhone />
+            </span>
+            <h4>Contact Number</h4>
+            <p>7498474952</p>
+          </article>
+          <article className="service">
+            <span className="icon">
+              <MdEmail />
+            </span>
+            <h4>Email Id</h4>
+            <p>Nilesh@otswoodcraft.com</p>
           </article>
           <article className="service">
             <span className="icon">
@@ -26,26 +38,9 @@ const Services = () => {
             </span>
             <h4>Vision</h4>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores,
-              hic.
+              To inspire through sustainable woodcraft, merging innovation with
+              timeless design.
             </p>
-          </article>
-          <article className="service">
-            <span className="icon">
-              <HiBookOpen />
-            </span>
-            <h4>History</h4>
-            <p>
-              Similique modi, quidem quae quas explicabo necessitatibus sint
-              eius beatae officiis ut!
-            </p>
-          </article>
-          <article className="service">
-            <span className="icon">
-              <HiColorSwatch />
-            </span>
-            <h4>Designers</h4>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
           </article>
         </div>
       </div>
