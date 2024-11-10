@@ -1,26 +1,26 @@
+// src/components/Hero.js
 import React from "react";
 import styled from "styled-components";
-import Slider from "react-slick"; // Import carousel library
+import Slider from "react-slick";
 
 // Import door images
 import doorImage1 from "../assets/door1.avif";
 import doorImage2 from "../assets/door2.avif";
 import doorImage3 from "../assets/door4.jpg";
-import doorImage4 from "../assets/door3.jpg"; // New Door Image 1
-import doorImage5 from "../assets/door5.jpg"; // New Door Image 2
+import doorImage4 from "../assets/door3.jpg";
+import doorImage5 from "../assets/door5.jpg";
 
 const Hero = () => {
-  // Carousel settings with left-right slide effect
   const settings = {
-    dots: false, // Hide navigation dots
+    dots: false,
     infinite: true,
-    speed: 1000, // Set speed of transition (1 second)
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true, // Enable autoplay
-    autoplaySpeed: 3000, // Change slide every 3 seconds
-    cssEase: "ease-in-out", // Smooth sliding effect
-    arrows: false, // Hide navigation arrows (optional)
+    autoplay: true,
+    autoplaySpeed: 3000,
+    cssEase: "ease-in-out",
+    arrows: false,
   };
 
   return (
@@ -29,32 +29,24 @@ const Hero = () => {
         <Slide>
           <img src={doorImage1} alt="Door Solutions" />
           <Caption>
-            <h1>Introducing a Phenomenon For Complete Door Solutions</h1>
+            Introducing a Phenomenon For Complete Door Solutions
           </Caption>
         </Slide>
         <Slide>
           <img src={doorImage2} alt="Lifestyle Doors" />
-          <Caption>
-            <h1>Lifestyle Doors Crafted With Unmatched Durability</h1>
-          </Caption>
+          <Caption>Lifestyle Doors Crafted With Unmatched Durability</Caption>
         </Slide>
         <Slide>
           <img src={doorImage3} alt="Possibilities with our doors" />
-          <Caption>
-            <h1>Step into a World of Possibilities with Our Doors!</h1>
-          </Caption>
+          <Caption>Step into a World of Possibilities with Our Doors!</Caption>
         </Slide>
         <Slide>
           <img src={doorImage4} alt="Modern Door Designs" />
-          <Caption>
-            <h1>Modern Designs for Every Home</h1>
-          </Caption>
+          <Caption>Modern Designs for Every Home</Caption>
         </Slide>
         <Slide>
           <img src={doorImage5} alt="High-Quality Wooden Doors" />
-          <Caption>
-            <h1>Crafted with Quality and Precision</h1>
-          </Caption>
+          <Caption>Crafted with Quality and Precision</Caption>
         </Slide>
       </Slider>
     </HeroContainer>
@@ -69,33 +61,28 @@ const HeroContainer = styled.section`
 
 const Slide = styled.div`
   position: relative;
+
   img {
     width: 100%;
-    height: 100vh; // Full screen height
-    object-fit: cover; // Ensure the image fills the container without distortion
+    height: 90vh; /* Reduced height to fit caption and navbar */
+    object-fit: cover;
   }
 `;
 
 const Caption = styled.div`
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 60px; /* Position caption slightly higher */
+  width: 100%;
   color: #fff;
   text-align: center;
-
-  h1 {
-    font-size: 2.5rem;
-    background: rgba(0, 0, 0, 0.5); // Background behind text for readability
-    padding: 1rem;
-    border-radius: 5px;
-  }
+  font-size: 1.8rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 0;
 
   @media (max-width: 768px) {
-    h1 {
-      font-size: 1.8rem;
-      padding: 0.8rem;
-    }
+    font-size: 1.2rem;
+    padding: 8px 0;
+    bottom: 40px; /* Slightly adjust for mobile */
   }
 `;
 

@@ -19,7 +19,7 @@ const NavIcons = () => {
           <span className="cart-value">{totalItems}</span>
         </span>
       </Link>
-      {user ? (
+      {/* {user ? (
         <button
           type="button"
           className="auth-btn"
@@ -31,7 +31,7 @@ const NavIcons = () => {
         <button type="button" className="auth-btn" onClick={loginWithRedirect}>
           Login <FaUserCircle />
         </button>
-      )}
+      )} */}
     </NavIconContainer>
   );
 };

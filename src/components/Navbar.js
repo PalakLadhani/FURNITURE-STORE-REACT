@@ -23,6 +23,8 @@ const Navbar = () => {
             <FaBars />
           </button>
         </div>
+
+        {/* Show Links on Laptop and Desktop (>= 992px) */}
         <ul className="nav-links">
           {links.map((link) => {
             const { id, text, url } = link;
@@ -42,6 +44,8 @@ const Navbar = () => {
             </li>
           )}
         </ul>
+
+        {/* Cart Icon */}
         <NavIcons />
       </div>
     </NavContainer>
@@ -58,7 +62,7 @@ const NavContainer = styled.nav`
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* Space between logo and other elements */
   }
 
   .nav-header {
@@ -87,8 +91,10 @@ const NavContainer = styled.nav`
 
   .nav-links {
     display: none;
+
     @media (min-width: 992px) {
       display: flex;
+      gap: 2rem; /* Space between nav items */
     }
   }
 
@@ -113,19 +119,27 @@ const NavContainer = styled.nav`
 
     .nav-center {
       padding: 0.5rem;
+      justify-content: space-between; /* This ensures space between the logo, hamburger, and cart */
     }
 
     .nav-links {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      padding-top: 1rem;
+      display: none; /* Hide links on mobile */
     }
 
-    .nav-link {
-      font-size: 0.9rem; /* Adjust font size */
-      padding: 0.3rem 0.8rem; /* Adjust padding */
+    /* Sidebar toggle for mobile */
+    .nav-toggle {
+      display: block;
+    }
+
+    /* Adjust NavIcons (cart) position on mobile */
+    .nav-center {
+      justify-content: space-between;
+      position: relative; /* Ensures positioning is correct */
+    }
+
+    .cart-btn {
+      position: absolute;
+      right: 10px; /* Position cart on the right corner */
     }
   }
 `;

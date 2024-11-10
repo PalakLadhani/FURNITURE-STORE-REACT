@@ -1,44 +1,53 @@
+// src/components/FeaturedProducts.js
 import React from "react";
 import styled from "styled-components";
-import { doorsData } from "../Data/data"; // Import doors data directly
-import Product from "./Product";
+import { doorsData as featuredProducts } from "../Data/data"; // Featured product data
+import Product from "./Product"; // Import Product component for individual product
 
 const FeaturedProducts = () => {
   return (
-    <FeaturedProductsContainer className="section">
-      <div className="title">
-        <h2>Featured Products</h2>
-        <div className="underline"></div>
-      </div>
-      <div className="section-center featured">
-        {/* Use doorsData to display only the first three door designs */}
-        {doorsData.slice(0, 3).map((product) => {
-          return <Product key={product.id} {...product} />;
-        })}
-      </div>
-    </FeaturedProductsContainer>
+    <FeaturedSection>
+      <FeaturedHeading>Featured Products</FeaturedHeading>
+      <ProductList>
+        {featuredProducts.slice(0, 10).map(
+          (
+            product // Show only first 10 products
+          ) => (
+            <Product key={product.id} {...product} />
+          )
+        )}
+      </ProductList>
+    </FeaturedSection>
   );
 };
 
-const FeaturedProductsContainer = styled.section`
-  background: var(--clr-grey-10);
-  padding: 1.5rem 0;
+// Styled Components
+const FeaturedSection = styled.section`
+  width: 100%;
+  padding: 40px 20px;
+  background-color: #f8f8f8;
+  text-align: center;
+`;
 
-  .featured {
-    display: grid;
-    gap: 1.5rem;
-    margin: 0 auto;
+const FeaturedHeading = styled.h2`
+  font-size: 2.8rem;
+  font-family: "Helvetica Neue", sans-serif;
+  color: #333;
+  margin-bottom: 30px;
+`;
 
-    img {
-      height: 200px;
-    }
-  }
+const ProductList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); // Responsive grid
+  gap: 20px;
+  padding: 10px 0;
+  margin-top: 20px;
 
-  @media (min-width: 576px) {
-    .featured {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2.5rem;
-    }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr; // Stack 2 items per row on mobile
   }
 `;
 
