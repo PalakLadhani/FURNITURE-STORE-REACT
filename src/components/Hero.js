@@ -1,106 +1,101 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import heroImage from "../assets/hero-door.webp"; // Replace this with your chosen image path
+import Slider from "react-slick"; // Import carousel library
+
+// Import door images
+import doorImage1 from "../assets/door1.avif";
+import doorImage2 from "../assets/door2.avif";
+import doorImage3 from "../assets/door4.jpg";
+import doorImage4 from "../assets/door3.jpg"; // New Door Image 1
+import doorImage5 from "../assets/door5.jpg"; // New Door Image 2
 
 const Hero = () => {
+  // Carousel settings with left-right slide effect
+  const settings = {
+    dots: false, // Hide navigation dots
+    infinite: true,
+    speed: 1000, // Set speed of transition (1 second)
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true, // Enable autoplay
+    autoplaySpeed: 3000, // Change slide every 3 seconds
+    cssEase: "ease-in-out", // Smooth sliding effect
+    arrows: false, // Hide navigation arrows (optional)
+  };
+
   return (
     <HeroContainer>
-      <Content>
-        <h1>
-          Welcome to Open to Sky Woodcrafts
-          <br />
-          <span>Crafting Quality & Elegance</span>
-        </h1>
-        <p>
-          Discover premium doors, frames, and furniture at Open to Sky
-          Woodcrafts. Each piece is meticulously crafted to reflect style and
-          durability, enhancing the beauty of your space. Our commitment to
-          quality ensures that every product meets the highest standards for
-          your home or office.
-        </p>
-        <Link to="/products" className="btn hero-btn">
-          Explore Our Collection
-        </Link>
-      </Content>
-      <ImgContainer>
-        <img src={heroImage} alt="Elegant wooden door" className="main-img" />
-      </ImgContainer>
+      <Slider {...settings}>
+        <Slide>
+          <img src={doorImage1} alt="Door Solutions" />
+          <Caption>
+            <h1>Introducing a Phenomenon For Complete Door Solutions</h1>
+          </Caption>
+        </Slide>
+        <Slide>
+          <img src={doorImage2} alt="Lifestyle Doors" />
+          <Caption>
+            <h1>Lifestyle Doors Crafted With Unmatched Durability</h1>
+          </Caption>
+        </Slide>
+        <Slide>
+          <img src={doorImage3} alt="Possibilities with our doors" />
+          <Caption>
+            <h1>Step into a World of Possibilities with Our Doors!</h1>
+          </Caption>
+        </Slide>
+        <Slide>
+          <img src={doorImage4} alt="Modern Door Designs" />
+          <Caption>
+            <h1>Modern Designs for Every Home</h1>
+          </Caption>
+        </Slide>
+        <Slide>
+          <img src={doorImage5} alt="High-Quality Wooden Doors" />
+          <Caption>
+            <h1>Crafted with Quality and Precision</h1>
+          </Caption>
+        </Slide>
+      </Slider>
     </HeroContainer>
   );
 };
-const HeroContainer = styled.section`
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  padding: 2rem;
-  background: linear-gradient(
-      to right,
-      rgba(240, 244, 248, 0.9),
-      rgba(230, 235, 241, 0.9)
-    ),
-    url(${heroImage}) center/cover no-repeat;
-  color: #34495e;
 
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr;
-    height: 100vh;
+// Styled Components
+const HeroContainer = styled.section`
+  width: 100%;
+  position: relative;
+`;
+
+const Slide = styled.div`
+  position: relative;
+  img {
+    width: 100%;
+    height: 100vh; // Full screen height
+    object-fit: cover; // Ensure the image fills the container without distortion
+  }
+`;
+
+const Caption = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+
+  h1 {
+    font-size: 2.5rem;
+    background: rgba(0, 0, 0, 0.5); // Background behind text for readability
+    padding: 1rem;
+    border-radius: 5px;
   }
 
   @media (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    text-align: center;
-    height: auto;
-  }
-`;
-const Content = styled.article`
-  text-align: center;
-  padding: 1rem; /* Reduced padding */
-
-  h1 {
-    font-size: 2rem; /* Smaller font for mobile */
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: #2c3e50;
-
-    span {
-      color: #e74c3c;
-      display: block;
-      font-size: 1.5rem; /* Smaller span font */
+    h1 {
+      font-size: 1.8rem;
+      padding: 0.8rem;
     }
-  }
-
-  p {
-    font-size: 1rem;
-    line-height: 1.5;
-    max-width: 100%; /* Fit content */
-    margin: 0 auto 1.5rem;
-    color: #555;
-  }
-
-  .hero-btn {
-    padding: 0.6rem 1.2rem; /* Adjusted for mobile */
-    font-size: 0.9rem;
-    margin-top: 1rem;
-  }
-`;
-
-const ImgContainer = styled.article`
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-
-  .main-img {
-    width: 100%;
-    max-width: 500px; /* Scaled down for mobile */
-    border-radius: 8px;
-    object-fit: cover;
-  }
-
-  @media (min-width: 768px) {
-    margin-top: 0;
   }
 `;
 

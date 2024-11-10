@@ -1,81 +1,59 @@
 // src/components/Product.js
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
 
-const Product = ({ id, image, name }) => {
+const Product = ({ image, name, description }) => {
   return (
     <ProductContainer>
-      <div className="container">
-        <img src={image} alt={name} />
-        <Link to={`/product/${id}`} className="link">
-          <FaSearch />
-        </Link>
-      </div>
-      <footer>
-        <h5>{name}</h5>
-      </footer>
+      <ProductImage src={image} alt={name} />
+      <ProductDetails>
+        <ProductTitle>{name}</ProductTitle>
+        <ProductDescription>{description}</ProductDescription>
+      </ProductDetails>
     </ProductContainer>
   );
 };
 
-const ProductContainer = styled.article`
-  .container {
-    position: relative;
-    background: var(--clr-black);
-    border-radius: var(--radius);
-  }
+const ProductContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 900px; // Limit width for large screens
 
-  img {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
-    border-radius: var(--radius);
-    transition: var(--transition);
-  }
-
-  .link {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--clr-primary-5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    transition: var(--transition);
-    opacity: 0;
-    cursor: pointer;
-  }
-
-  .container:hover img {
-    opacity: 0.9;
-  }
-
-  .container:hover .link {
-    opacity: 1;
-  }
-
-  footer {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  @media (max-width: 576px) {
-    footer {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    img {
-      height: auto;
-    }
+  @media (max-width: 768px) {
+    flex-direction: column; // Stack elements vertically on smaller screens
+    gap: 15px;
+    width: 90%; // Optionally adjust the width for mobile screens to provide more space
   }
 `;
+
+const ProductImage = styled.img`
+  width: 100%;
+  max-width: 400px; // Keep a max width to ensure the image doesn't become too large
+  height: auto;
+  object-fit: contain; // Ensure the full image is displayed without cropping or zoom
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; // Center the image if needed
+`;
+const ProductDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 100%; // Ensure details use the available width without exceeding limits
+`;
+
+const ProductTitle = styled.h3`
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+`;
+
+const ProductDescription = styled.p`
+  font-size: 1.1rem;
+  color: #555;
+`;
+
 export default Product;

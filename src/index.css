@@ -3,6 +3,8 @@
 Variables
 ===============
 */
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 
 :root {
   /* dark shades of primary color*/

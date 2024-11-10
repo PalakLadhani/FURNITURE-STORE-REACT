@@ -1,62 +1,53 @@
-// src/components/ProductDetails.js
+// src/pages/ProductDetail.js (or a similar component for product details)
 import React from "react";
 import styled from "styled-components";
-import { useParams } from "react-router-dom";
-import { doorsData } from "../Data/data"; // Import doors data
+import { useParams } from "react-router-dom"; // If you're using React Router for navigation
+import { doorsData as productsData } from "../Data/data"; // Adjust the import for product data
 
-const ProductDetails = () => {
+const ProductDetail = () => {
   const { id } = useParams();
-  const product = doorsData.find((item) => item.id === parseInt(id));
-
-  if (!product) {
-    return <p>Product not found.</p>;
-  }
-
-  const {
-    image,
-    name,
-    description = "Premium quality doors with elegant designs.",
-  } = product;
+  const product = productsData.find((item) => item.id === parseInt(id)); // Get product by ID
 
   return (
-    <ProductDetailsContainer>
-      <img src={image} alt={name} />
-      <div className="details">
-        <h2>{name}</h2>
-        <p>{description}</p>
-        {/* Add any other details you want to display here */}
-      </div>
-    </ProductDetailsContainer>
+    <ProductDetailContainer>
+      <ProductImage src={product.image} alt={product.name} />
+      <ProductName>{product.name}</ProductName>
+      <ProductDescription>{product.description}</ProductDescription>
+    </ProductDetailContainer>
   );
 };
 
-const ProductDetailsContainer = styled.div`
+// Styled Components for Product Detail Page
+const ProductDetailContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  padding: 2rem;
-
-  img {
-    width: 300px;
-    height: 400px;
-    object-fit: cover;
-    border-radius: var(--radius);
-  }
-
-  .details {
-    max-width: 500px;
-
-    h2 {
-      font-size: 2rem;
-      color: var(--clr-primary-5);
-    }
-
-    p {
-      margin-top: 1rem;
-      font-size: 1.1rem;
-      color: var(--clr-grey-5);
-    }
-  }
+  justify-content: center;
+  padding: 20px;
+  max-width: 100%;
+  width: 100%;
 `;
 
-export default ProductDetails;
+const ProductImage = styled.img.attrs(() => ({
+  loading: "lazy", // This enables lazy loading for images
+}))`
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+`;
+
+const ProductName = styled.h1`
+  font-size: 2.5rem;
+  margin-top: 20px;
+`;
+
+const ProductDescription = styled.p`
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 20px;
+`;
+
+export default ProductDetail;

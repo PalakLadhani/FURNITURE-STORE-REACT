@@ -1,37 +1,28 @@
 import React from "react";
 import styled from "styled-components";
-import PageHero from "../components/PageHero";
-import Filters from "../components/Filters";
-import Sort from "../components/Sort";
-import ProductList from "../components/ProductList";
+import { doorsData as productsData } from "../Data/data"; // Ensure the correct path to data.js
+import Product from "../components/Product"; // Product component for each item
 
 const Products = () => {
   return (
-    <main>
-      <PageHero title="products" />
-      <ProductsContainer className="page">
-        <div className="section-center products">
-          <Filters />
-          <div>
-            <Sort />
-            <ProductList />
-          </div>
-        </div>
-      </ProductsContainer>
-    </main>
+    <ProductListContainer>
+      {productsData.map((product) => (
+        <Product key={product.id} {...product} />
+      ))}
+    </ProductListContainer>
   );
 };
 
-const ProductsContainer = styled.div`
-  .products {
-    display: grid;
-    gap: 3rem 1.5rem;
-    margin: 4rem auto;
-  }
-  @media (min-width: 768px) {
-    .products {
-      grid-template-columns: 200px 1fr;
-    }
+const ProductListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+
+  @media (max-width: 768px) {
+    padding: 10px;
   }
 `;
 
