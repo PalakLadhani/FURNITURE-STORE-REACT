@@ -74,7 +74,7 @@ const Slide = styled.div`
 
   img {
     width: 100%;
-    height: 90vh;
+    height: 70vh;
     object-fit: contain; /* Change to 'contain' for full view */
     background-color: #f0f0f0; /* Light background to fill extra space */
   }
