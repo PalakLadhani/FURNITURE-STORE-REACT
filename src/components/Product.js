@@ -41,11 +41,10 @@ const ProductDetails = styled.div`
   text-align: center;
   padding: 15px;
 `;
-
-const ProductTitle = styled.h3`
-  font-size: 1.6rem;
+const ProductTitle = styled.h2`
+  font-size: 1.3rem;
   color: #333;
-  font-family: "Roboto", sans-serif; // Professional font
+  font-family: "Roboto Slab", serif;
   margin-bottom: 10px;
 `;
 
