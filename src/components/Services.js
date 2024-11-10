@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { HiColorSwatch, HiBookOpen, HiBadgeCheck, HiEye } from "react-icons/hi";
 import { FaRegAddressCard } from "react-icons/fa";
 import { MdContactPhone, MdEmail } from "react-icons/md";
+
 const Services = () => {
   return (
     <ServicesContainer>
@@ -16,7 +17,7 @@ const Services = () => {
               <FaRegAddressCard />
             </span>
             <h4>Address</h4>
-            <p>404,Rich Empire,Lane No 5,Kutwal Colony,Lohegaon,Pune-15</p>
+            <p>404, Rich Empire, Lane No 5, Kutwal Colony, Lohegaon, Pune-15</p>
           </article>
           <article className="service">
             <span className="icon">
@@ -51,17 +52,18 @@ const Services = () => {
 const ServicesContainer = styled.section`
   h3,
   h4 {
-    color: var(--clr-primary-1);
+    color: #4a3c72; /* Deep lavender color for headings */
   }
   padding: 5rem 0;
-  background: var(--clr-primary-10);
+  background: #e3eaf3; /* Same background color from Counter.js */
   .header h3 {
     margin-bottom: 2rem;
+    text-align: center;
   }
   p {
     margin-bottom: 0;
     line-height: 1.8;
-    color: var(--clr-primary-3);
+    color: #6c4f8c; /* Slightly darker lavender for text */
   }
   .services-center {
     margin-top: 4rem;
@@ -69,12 +71,13 @@ const ServicesContainer = styled.section`
     gap: 2.5rem;
   }
   .service {
-    background: var(--clr-primary-8);
+    background: #ffffff; /* White background for service cards */
     text-align: center;
     padding: 2.5rem 2rem;
-    border-radius: var(--radius);
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a modern look */
     p {
-      color: var(--clr-primary-2);
+      color: #7f5a8b; /* Light purple for service text */
     }
   }
   span {
@@ -85,8 +88,8 @@ const ServicesContainer = styled.section`
     place-items: center;
     margin-bottom: 1rem;
     border-radius: 50%;
-    background: var(--clr-primary-10);
-    color: var(--clr-primary-1);
+    background: #e1d4eb; /* Lavender background for icon */
+    color: #4a3c72; /* Deep lavender for icon color */
     svg {
       font-size: 2rem;
     }

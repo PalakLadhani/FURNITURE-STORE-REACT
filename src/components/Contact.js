@@ -79,6 +79,7 @@ const ContactContainer = styled.section`
   padding: 5rem 0;
   h3 {
     text-transform: none;
+    color: #4a3c72; /* Lavender color */
   }
   p {
     max-width: 45em;
@@ -113,17 +114,19 @@ const ContactContainer = styled.section`
     text-transform: capitalize;
   }
 
+  /* Updated button styles */
   .submit-btn {
-    background: var(--clr-primary-6);
+    background: #e3eaf3; /* Light lavender background */
     text-transform: capitalize;
     letter-spacing: var(--spacing);
     cursor: pointer;
-    transition: var(--transition);
-    color: var(--clr-black);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: #4a3c72; /* Darker lavender for the text */
   }
 
   .submit-btn:hover {
-    color: var(--clr-white);
+    background-color: #4a3c72; /* Darker lavender when hovered */
+    color: #fff; /* White text on hover */
   }
 
   @media (min-width: 992px) {
@@ -138,6 +141,7 @@ const ContactContainer = styled.section`
       margin-bottom: 0;
     }
   }
+
   @media (min-width: 1280px) {
     padding: 15rem 0;
   }

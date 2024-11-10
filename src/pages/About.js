@@ -9,37 +9,37 @@ const teamMembers = [
     name: "Santosh Paigude",
     designation: "CEO",
     contact: "123-456-7890",
-    email: "santosh@example.com",
+    email: "santosh@otswoodcraft.com",
   },
   {
     name: "Vishhal Saraf",
     designation: "Director",
     contact: "123-456-7891",
-    email: "vishhal@example.com",
+    email: "vishhal@otswoodcraft.com",
   },
   {
     name: "Dilip Patel",
     designation: "Factory Management Head",
     contact: "123-456-7892",
-    email: "dilip@example.com",
+    email: "dilip@otswoodcraft.com",
   },
   {
     name: "Vikash Dorle",
     designation: "HOD",
     contact: "123-456-7893",
-    email: "vikash@example.com",
+    email: "vikash@otswoodcraft.com",
   },
   {
     name: "Soniya Saraf",
     designation: "Head Sales & Marketing",
     contact: "123-456-7894",
-    email: "soniya@example.com",
+    email: "soniya@otswoodcraft.com",
   },
   {
     name: "Nilesh Malviy",
     designation: "Sales Manager",
     contact: "123-456-7895",
-    email: "nilesh@example.com",
+    email: "nilesh@otswoodcraft.com",
   },
 ];
 
@@ -93,11 +93,13 @@ const AboutContainer = styled.section`
 
   img {
     width: 100%;
+    max-width: 100%; /* Ensure image fits within container */
     height: auto;
-    max-height: 500px;
-    object-fit: cover;
+    max-height: 500px; /* Restrict height to avoid distortion */
+    object-fit: contain;
     border-radius: var(--radius);
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Center image horizontally */
   }
 `;
 

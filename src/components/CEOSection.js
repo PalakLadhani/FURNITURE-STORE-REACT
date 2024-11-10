@@ -35,6 +35,7 @@ const CEOContainer = styled.section`
   ); /* Soft Blue Gradient */
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
   margin-top: 2rem;
+  margin-bottom: 2rem;
   border-radius: 10px;
 
   .ceo-content {
@@ -49,8 +50,8 @@ const CEOContainer = styled.section`
 
   .ceo-photo {
     flex-shrink: 0;
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     overflow: hidden;
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.1);

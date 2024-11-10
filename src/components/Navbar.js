@@ -70,7 +70,7 @@ const NavContainer = styled.nav`
     align-items: center;
 
     img {
-      width: 120px;
+      width: 210px;
     }
 
     .nav-toggle {
