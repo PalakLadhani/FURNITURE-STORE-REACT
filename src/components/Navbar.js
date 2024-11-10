@@ -54,7 +54,7 @@ const Navbar = () => {
 
 const NavContainer = styled.nav`
   background-color: #fdfdfd;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
 
   .nav-center {
     width: 90vw;

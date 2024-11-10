@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Logo from "../assets/Logo.jpeg";
 
 const CEOSection = () => {
   return (
@@ -7,17 +8,16 @@ const CEOSection = () => {
       <div className="ceo-content">
         <div className="ceo-photo">
           {/* You can upload an image here */}
-          <img src="https://via.placeholder.com/150" alt="CEO" />
+          <img src={Logo} alt="CEO" />
         </div>
         <div className="ceo-description">
-          <h2>John Doe</h2>
+          <h2>Open TO Sky Woodcraft</h2>
           <p>
-            John Doe is the CEO of Open to Sky Woodcrafts. With over 20 years of
-            experience in the woodworking industry, he has led the company to
-            remarkable growth. Under his leadership, the company has expanded
-            into multiple cities, serving thousands of happy customers. His
-            vision is to continuously innovate and deliver the finest wooden
-            products.
+            Firm, focusing mainly on the Manufacturing, Supplying, Retailing
+            various types of Doors, Frames and Furniture We ars being served by
+            an efficient and dedicated team of professionals. it is only because
+            of them that we have succeeded in delivering on uninterrupted and
+            continuous service to our clients
           </p>
         </div>
       </div>
