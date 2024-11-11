@@ -1,8 +1,8 @@
 // src/pages/About.js
 import React, { useEffect, useRef } from "react";
-import styled from "styled-components"; // Import styled-components
+import styled from "styled-components";
 import PageHero from "../components/PageHero";
-import image from "../assets/about_us.jpg"; // Ensure this path is correct
+import image from "../assets/about_us.jpg";
 
 const teamMembers = [
   {
@@ -52,7 +52,7 @@ const About = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("fade-in");
-            observer.unobserve(entry.target); // Stop observing once animation is triggered
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -68,7 +68,6 @@ const About = () => {
 
   return (
     <main>
-      {/* <PageHero title="About Us" /> */}
       <AboutContainer className="page section section-center">
         <img src={image} alt="about us" />
         <ContentWrapper>
@@ -114,35 +113,36 @@ const About = () => {
 };
 
 const AboutContainer = styled.section`
-  display: grid;
-  gap: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
   padding: 2rem;
 
   img {
     width: 100%;
-    max-width: 100%; /* Ensure image fits within container */
+    max-width: 100%;
     height: auto;
-    max-height: 500px; /* Restrict height to avoid distortion */
-    object-fit: contain;
+    max-height: 500px;
+    object-fit: cover;
     border-radius: var(--radius);
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    margin: 0 auto; /* Center image horizontally */
   }
 
   @media (max-width: 768px) {
-    padding: 1rem; /* Adjust padding for smaller screens */
+    padding: 1rem;
   }
 `;
 
 const ContentWrapper = styled.div`
   display: grid;
-  gap: 3rem;
-  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+  text-align: center;
 
   .title {
-    text-align: center;
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   .underline {
@@ -154,27 +154,19 @@ const ContentWrapper = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding: 0 1rem; /* Ensure no overflow on smaller screens */
-  }
-
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media (min-width: 992px) {
-    grid-template-columns: 1fr 1fr;
-    padding: 4rem;
+    padding: 0 1rem;
   }
 `;
 
 const TeamContainer = styled.div`
   display: grid;
-  gap: 3rem;
-  margin-top: 2rem;
+  gap: 2rem;
+  justify-content: center;
+  width: 100%;
   padding: 1rem;
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr; /* Stacks cards in a single column for small screens */
+    grid-template-columns: 1fr;
   }
 
   @media (min-width: 768px) {
