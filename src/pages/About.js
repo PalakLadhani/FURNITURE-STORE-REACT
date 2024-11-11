@@ -1,8 +1,8 @@
 // src/pages/About.js
 import React, { useEffect, useRef } from "react";
-import styled from "styled-components";
+import styled from "styled-components"; // Import styled-components
 import PageHero from "../components/PageHero";
-import image from "../assets/about_us.jpg";
+import image from "../assets/about_us.jpg"; // Ensure this path is correct
 
 const teamMembers = [
   {
@@ -52,7 +52,7 @@ const About = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("fade-in");
-            observer.unobserve(entry.target);
+            observer.unobserve(entry.target); // Stop observing once animation is triggered
           }
         });
       },
@@ -69,13 +69,14 @@ const About = () => {
   return (
     <main>
       <AboutContainer className="page section section-center">
-        <img src={image} alt="about us" />
+        <ImageContainer>
+          <img src={image} alt="about us" />
+        </ImageContainer>
         <ContentWrapper>
           <article>
             <div className="title">
               <h2>Our team</h2>
               <div className="underline"></div>
-              <br />
               <p>
                 Our dedicated team is committed to delivering excellence and
                 quality in every aspect of our work.
@@ -113,11 +114,19 @@ const About = () => {
 };
 
 const AboutContainer = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+  display: grid;
+  gap: 4rem;
   padding: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+`;
+
+const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center; /* Center image horizontally */
+  width: 100%;
 
   img {
     width: 100%;
@@ -128,24 +137,17 @@ const AboutContainer = styled.section`
     border-radius: var(--radius);
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   }
-
-  @media (max-width: 768px) {
-    padding: 1rem;
-  }
 `;
 
 const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 1rem; /* Prevents overflow on small screens */
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 1fr;
+  text-align: center; /* Center-align all text */
 
   .title {
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 
   .underline {
@@ -156,23 +158,25 @@ const ContentWrapper = styled.div`
     margin-top: 10px;
   }
 
-  p {
-    max-width: 800px; /* Limit width for better readability */
-    margin: 0 auto;
-  }
-
   @media (max-width: 768px) {
     padding: 0 1rem;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: 1fr 1fr;
+    padding: 4rem;
   }
 `;
 
 const TeamContainer = styled.div`
   display: grid;
   gap: 2rem;
-  justify-content: center;
-  width: 100%;
-  max-width: 1200px;
   padding: 1rem;
+  justify-items: center; /* Center items on mobile */
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
