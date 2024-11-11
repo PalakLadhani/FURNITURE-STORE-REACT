@@ -135,10 +135,13 @@ const AboutContainer = styled.section`
 `;
 
 const ContentWrapper = styled.div`
-  display: grid;
-  gap: 2rem;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1rem; /* Prevents overflow on small screens */
 
   .title {
     position: relative;
@@ -153,6 +156,11 @@ const ContentWrapper = styled.div`
     margin-top: 10px;
   }
 
+  p {
+    max-width: 800px; /* Limit width for better readability */
+    margin: 0 auto;
+  }
+
   @media (max-width: 768px) {
     padding: 0 1rem;
   }
@@ -163,6 +171,7 @@ const TeamContainer = styled.div`
   gap: 2rem;
   justify-content: center;
   width: 100%;
+  max-width: 1200px;
   padding: 1rem;
 
   @media (max-width: 768px) {
