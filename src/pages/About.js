@@ -68,6 +68,7 @@ const About = () => {
 
   return (
     <main>
+      {/* <PageHero title="About Us" /> */}
       <AboutContainer className="page section section-center">
         <img src={image} alt="about us" />
         <ContentWrapper>

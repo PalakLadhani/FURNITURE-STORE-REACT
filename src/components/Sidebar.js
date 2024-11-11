@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { MdClose } from "react-icons/md";
-import logo from "../assets/Logo.png";
+import logo from "../assets/Logo.jpeg";
 import { links } from "../utils/constants";
 import NavIcons from "./NavIcons";
 import { useProductsContext } from "../context/products_context";
