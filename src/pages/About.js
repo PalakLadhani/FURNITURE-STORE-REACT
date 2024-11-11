@@ -1,6 +1,6 @@
 // src/pages/About.js
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect, useRef } from "react";
+import styled from "styled-components"; // Import styled-components
 import PageHero from "../components/PageHero";
 import image from "../assets/about_us.jpg"; // Ensure this path is correct
 
@@ -44,6 +44,28 @@ const teamMembers = [
 ];
 
 const About = () => {
+  const teamRef = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in");
+            observer.unobserve(entry.target); // Stop observing once animation is triggered
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    teamRef.current.forEach((el) => {
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main>
       <AboutContainer className="page section section-center">
@@ -61,7 +83,11 @@ const About = () => {
             </div>
             <TeamContainer>
               {teamMembers.map((member, index) => (
-                <TeamCard key={index}>
+                <TeamCard
+                  key={index}
+                  ref={(el) => (teamRef.current[index] = el)}
+                  style={{ transitionDelay: `${index * 0.2}s` }}
+                >
                   <h3>{member.name}</h3>
                   <p>{member.designation}</p>
                   <table>
@@ -101,6 +127,10 @@ const AboutContainer = styled.section`
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     margin: 0 auto; /* Center image horizontally */
   }
+
+  @media (max-width: 768px) {
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -122,9 +152,8 @@ const ContentWrapper = styled.div`
     margin-top: 10px;
   }
 
-  // Add space between the title/underline and the team container
-  .title + p {
-    margin-top: 2rem;
+  @media (max-width: 768px) {
+    padding: 0 1rem; /* Ensure no overflow on smaller screens */
   }
 
   @media (min-width: 768px) {
@@ -141,7 +170,11 @@ const TeamContainer = styled.div`
   display: grid;
   gap: 3rem;
   margin-top: 2rem;
-  padding: 2rem;
+  padding: 1rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* Stacks cards in a single column for small screens */
+  }
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
@@ -158,10 +191,14 @@ const TeamCard = styled.div`
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   text-align: center;
-  transition: transform 0.3s ease;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  will-change: transform, opacity;
 
-  &:hover {
-    transform: scale(1.05);
+  &.fade-in {
+    transform: translateY(0);
+    opacity: 1;
   }
 
   h3 {

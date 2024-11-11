@@ -11,7 +11,7 @@ const CEOSection = () => {
           <img src={Logo} alt="CEO" />
         </div>
         <div className="ceo-description">
-          <h2>Open TO Sky Woodcraft</h2>
+          <h2>Open To Sky Woodcraft</h2>
           <p>
             Firm, focusing mainly on the Manufacturing, Supplying, Retailing
             various types of Doors, Frames and Furniture We ars being served by
@@ -27,7 +27,6 @@ const CEOSection = () => {
 
 const CEOContainer = styled.section`
   padding: 2rem 0;
-
   background: linear-gradient(
     to right,
     #e0f7fa,
@@ -52,7 +51,6 @@ const CEOContainer = styled.section`
     flex-shrink: 0;
     width: 200px;
     height: 200px;
-    border-radius: 50%;
     overflow: hidden;
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.1);
   }
@@ -69,11 +67,10 @@ const CEOContainer = styled.section`
     color: var(--clr-grey-5);
     text-align: left;
   }
-
   .ceo-description h2 {
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--clr-primary-4);
+    color: #7d1a1b; /* Replace this with the exact maroon hex code if different */
     margin-bottom: 1rem;
   }
 
