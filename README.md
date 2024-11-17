@@ -1,10 +1,6 @@
 Working demo:
 
-```
 
-
-
-```
 
 ![Alt text](https://i.imgur.com/O7UPxVQ.png "Website screenshot")
 
