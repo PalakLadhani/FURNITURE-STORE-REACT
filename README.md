@@ -2,7 +2,8 @@ Working demo:
 
 
 
-![Alt text](https://i.imgur.com/O7UPxVQ.png "Website screenshot")
+![Alt text](![image](https://github.com/user-attachments/assets/780f7625-bbc0-465a-afd3-5586c7913f3a)
+")
 
 # Setup:
 
